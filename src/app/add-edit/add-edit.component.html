@@ -1,0 +1,61 @@
+<div fxFlex="40">
+
+    <div class="form-size" class="mat-elevation-z6" style="background-image: url(../assets/form.jpg);
+    background-position: center;background-size: cover;
+    background-attachment:local;  background-repeat: no-repeat;">
+        <h3>Add a new Contact</h3>
+        <form novalidate [formGroup]="addContactForm" #cForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <p matLine>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <input matInput formControlName="First_Name" placeholder="First Name" type="text">
+                    <mat-error *ngIf="formErrors.First_Name">
+                        {{formErrors.First_Name}}
+                      </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p matLine>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <input matInput formControlName="Last_Name" placeholder="Last Name" type="text">
+                    <mat-error *ngIf="formErrors.Last_Name">
+                        {{formErrors.Last_Name}}
+                      </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p matLine>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <input matInput formControlName="Email" placeholder="Email" type="email">
+                    <mat-error *ngIf="formErrors.Email">
+                        {{formErrors.Email}}
+                      </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p matLine>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                    <input matInput formControlName="PhoneNumber" placeholder="Phone No." type="number">
+                    <mat-error *ngIf="formErrors.PhoneNumber">
+                        {{formErrors.PhoneNumber}}
+                      </mat-error>
+                </mat-form-field>
+            </p>
+      
+            <p matLine>
+                <mat-form-field appearance="fill" style="width: 30%">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="Status" required>
+                        <mat-option *ngFor="let stat of status" [value]="stat">
+                        {{ stat }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+            
+            <button type="submit" style="background-color: currentColor;"
+             mat-raised-button class="background-primary text-floral-white"
+            [disabled]="addContactForm.invalid" >Submit</button>
+        </form>
+    </div>
+</div>

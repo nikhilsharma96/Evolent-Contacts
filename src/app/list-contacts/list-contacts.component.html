@@ -1,0 +1,42 @@
+<div class="container" fxFlex>
+    <div fxFLex fxLayout.xs="column"
+     fxLayout.gt-md="column"  fxFlex.xs="100%" fxFlex.gt-md="70%" fxFlex.lg="100%">
+        <div class="users" style="padding-left: 20%;" >
+            <div fxLayout="row">
+                <div fxLayout="column">
+                    <h1 style="color:seagreen">
+                        List Of Contacts
+                    </h1>
+                </div>
+                <div fxLayout="column" style="margin-left: 10px;margin-top: 10px;">
+                    <a (click)="addContact()"><button mat-fab color="accent" aria-label="Example icon button with a plus one icon">
+                        <mat-icon>person_add</mat-icon>
+                    </button></a>
+                </div>    
+            </div>
+        </div>
+        <div fxLayout="column">
+            <div fxLayout="row wrap">
+                <mat-card  fxLayoutAlign="start start" class="user"  
+                *ngFor="let contact of contacts;let id=index">
+                    <mat-card-content class="user" >
+                        <mat-icon style="font-size: medium;position:absolute;left: 90%;padding-bottom: 90%;"
+                        (click)="editContact(id)">edit</mat-icon>
+                        <mat-icon style="font-size:50px;padding-left: 30%;padding-right: 30%;">person_outline</mat-icon>
+                        <mat-card-header>
+                            <h2>{{contact.First_Name}}  {{contact.Last_Name}}</h2>
+                        </mat-card-header>
+                        <strong><u> Email Id</u></strong>
+                        <p>{{contact.Email}}</p>
+                        <strong><u>Contact No.</u></strong>
+                        <p>{{contact.PhoneNumber}}</p>
+                        <mat-card-footer style="margin-left: 30%;">
+                            <strong><u>Status</u></strong>
+                            <p>{{contact.Status}}</p>
+                        </mat-card-footer>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

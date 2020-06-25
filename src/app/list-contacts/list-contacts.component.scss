@@ -1,0 +1,23 @@
+.container{
+    background-image:url("../../assets/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: local;  
+    background-repeat: no-repeat;
+    padding-left: 20%;
+    // padding-right: 20%;
+}
+
+.users{
+    color: adjust-hue($color:black, $degrees: 3);
+    
+
+}
+.user{
+    border: 0px solid ;
+    width: auto;
+    border-color: green($color: green);
+    background: snow;
+    margin: 5px;
+    height: fit-content;;
+}
